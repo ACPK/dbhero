@@ -9,7 +9,9 @@ module Dbhero
       @options = options
 
       @auth = @client.authorization
-      @auth.client_id = Dbhero.google_api_id
+      @auth.application_name = 'Test App'
+      @auth.application_version = '1.0'
+      @auth.client_id = "Dbhero.google_api_id"
       @auth.client_secret = Dbhero.google_api_secret
       @auth.scope =
         "https://www.googleapis.com/auth/drive " +
