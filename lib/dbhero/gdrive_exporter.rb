@@ -5,12 +5,13 @@ module Dbhero
       :dataclip, :uploaded_file, :exported_file_url
 
     def initialize options = {}
-      @client ||= ::Google::APIClient.new
+      @client ||= ::Google::APIClient.new(
+        :application_name => 'Test App',
+        :application_version => '1.0.0'
+      )
       @options = options
 
       @auth = @client.authorization
-      @auth.application_name = 'Test App'
-      @auth.application_version = '1.0'
       @auth.client_id = "Dbhero.google_api_id"
       @auth.client_secret = Dbhero.google_api_secret
       @auth.scope =
